@@ -9,15 +9,34 @@
     <title>Etch-A-Sketch</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="images/favicon.png" />
+
+    
   </head>
 
   <body>
     <div id="titleBar">
         <h1>This is Etch-A-Sketch!</h1>
     </div>
-    
+    <div id="options">
+      <ul id="optionButtonList">
+        <li>
+          <button id="clearButton">Clear</button>
+        </li>
+        <li>
+        
+          <button id="another">Test</button>
+        </li>
+  
+      </ul>
+
+    </div>
     <div id="container">
         
+    </div>
+    
+    <div id="slideContainer">
+      <label for="pixelSizeControl" id="sliderLabel">16 x 16</label>
+      <input type="range" step="1" min="16" max="64" value="16" class="slider" id="pixelSizeControl">
     </div>
     
     

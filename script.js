@@ -1,44 +1,37 @@
-const container = document.querySelector("#container");
+        /*                              VARIABLES                           */
+// CONSTANT VARIABLES
 const DEFAULT_COLOR = "red";
-let DEFAULT_SIZE = 16;
-let currentColor = "red";
-
-
+const DEFAULT_SIZE = 16;
+//CONSTANT ELEMENT-VARIABLES
+const container = document.querySelector("#container");
 const clearButton = document.getElementById("clearButton");
-let pixelSlider = document.querySelector("#pixelSizeControl");
+const pixelSlider = document.querySelector("#pixelSizeControl");
+const sliderLabel = document.getElementById("sliderLabel");
+// GLOBAL VARIABLES
+let currentColor = DEFAULT_COLOR;
 
-// On Start
-createPixels(DEFAULT_SIZE);
-changeSketchColor(DEFAULT_COLOR);
+        /*                           EVENT_LISTENERS                        */
 
-//Update Label if Slider changed
+// Update Label onmousemove
 pixelSlider.onmousemove = function()  {
-    //update Label
-    document.getElementById("sliderLabel").innerHTML = pixelSlider.value + ' x ' + pixelSlider.value;
+    sliderLabel.innerHTML = pixelSlider.value + ' x ' + pixelSlider.value;
 }
-// Reload if slider changed
+// Reload Pixels if Slider changed
 pixelSlider.oninput = function()  {
-        //clearPixels();
-        //update Sketchboard (create Pixels)
-        //createPixels(pixelSlider.value);
-        reloadPixels(pixelSlider.value);
+    //update Sketchboard (create Pixels)
+    //createPixels(pixelSlider.value);
+    reloadPixels(pixelSlider.value);
 }
-
-//Add Eventlistener to Clear Button to make all Pixels white again
-
+//Reload Pixels if clicked on Clear Button
 clearButton.addEventListener("click",function() {
     reloadPixels(pixelSlider.value);
 });
 
-
-
-//function to clear pixels
-function clearPixels() {
-    container.innerHTML = "";
-}
+        /*                              FUNCTIONS                           */
 
 //function to create pixels
 function createPixels(size) {
+
     //build Grid
     container.style.gridTemplateColumns = 'repeat(' + size + ', 1fr)';
     container.style.gridTemplateRows = 'repeat(' + size + ', 1fr)';
@@ -67,12 +60,15 @@ function changeSketchColor(color){
    
 }
 
-
-
 function reloadPixels(size) {
-    clearPixels();
+    container.innerHTML = "";
     createPixels(size);
 }
 
+// On Start
+window.onload = () => {
+    createPixels(DEFAULT_SIZE);
+    changeSketchColor(DEFAULT_COLOR);
+}
 
 

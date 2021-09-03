@@ -1,12 +1,13 @@
         /*                              VARIABLES                           */
 // CONSTANT VARIABLES
-const DEFAULT_COLOR = "red";
+const DEFAULT_COLOR = "#C84646";
 const DEFAULT_SIZE = 16;
 //CONSTANT ELEMENT-VARIABLES
 const container = document.querySelector("#container");
 const clearButton = document.getElementById("clearButton");
 const pixelSlider = document.querySelector("#pixelSizeControl");
 const sliderLabel = document.getElementById("sliderLabel");
+const colorPicker = document.getElementById("colorPicker");
 // GLOBAL VARIABLES
 let currentColor = DEFAULT_COLOR;
 
@@ -26,6 +27,12 @@ pixelSlider.oninput = function()  {
 clearButton.addEventListener("click",function() {
     reloadPixels(pixelSlider.value);
 });
+
+//Colorchange if new Color picked
+colorPicker.onchange = function(){
+    changeColor(colorPicker.value);
+    changeSketchColor(colorPicker.value);
+}
 
         /*                              FUNCTIONS                           */
 

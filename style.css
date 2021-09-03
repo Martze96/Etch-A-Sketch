@@ -1,5 +1,13 @@
+#titleBar {
+    background-color: khaki;
+}
+
 #titleBar h1 {
     text-align: center;
+    font-family: sans-serif;
+    margin-top: 50px;
+    font-size: 64px;
+    
 }
 
 
@@ -29,7 +37,7 @@ box-shadow: 0px 10px 20px grey;
     margin:auto;
 }
 
-#clearButton {
+.optionButton {
   background-color: #ff4242;
   border: none;
   color: white;
@@ -41,8 +49,20 @@ box-shadow: 0px 10px 20px grey;
   border-radius: 10px;
 }
 
-#another {
+#rainbowButton {
     margin-top: 10px;
+    padding-right: 40px;
+    text-align: center;
+}
+
+#colorPicker {
+    margin-top: 30px;
+    width: 80px;
+    height: 80px;
+    border: none;
+    padding: 0;
+    box-shadow: 0px 0px 5px grey;
+
 }
 
 #optionButtonList {

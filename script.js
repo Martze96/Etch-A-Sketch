@@ -1,15 +1,20 @@
         /*                              VARIABLES                           */
 // CONSTANT VARIABLES
-const DEFAULT_COLOR = "#C84646";
+const DEFAULT_COLOR = "#000000";
 const DEFAULT_SIZE = 16;
+const DEFAULT_SKETCHMODE = "Color"; //"Color","Rainbow","Erasers"
 //CONSTANT ELEMENT-VARIABLES
 const container = document.querySelector("#container");
 const clearButton = document.getElementById("clearButton");
+const colorButton = document.getElementById("colorButton");
+const rainbowButton = document.getElementById("rainbowButton");
+const eraserButton = document.getElementById("eraserButton");
 const pixelSlider = document.querySelector("#pixelSizeControl");
 const sliderLabel = document.getElementById("sliderLabel");
 const colorPicker = document.getElementById("colorPicker");
 // GLOBAL VARIABLES
 let currentColor = DEFAULT_COLOR;
+let currentSketchMode = DEFAULT_SKETCHMODE;
 
         /*                           EVENT_LISTENERS                        */
 
@@ -19,19 +24,33 @@ pixelSlider.onmousemove = function()  {
 }
 // Reload Pixels if Slider changed
 pixelSlider.oninput = function()  {
-    //update Sketchboard (create Pixels)
-    //createPixels(pixelSlider.value);
     reloadPixels(pixelSlider.value);
 }
 //Reload Pixels if clicked on Clear Button
 clearButton.addEventListener("click",function() {
     reloadPixels(pixelSlider.value);
 });
+//Colorchange / Colormode if clicked
+colorButton.addEventListener("click", function(){
+    currentSketchMode = "Color";
+    changeSketchColor(colorPicker.value);
+})
+//Colorchange Rainbow if clicked
+rainbowButton.addEventListener("click",function(){
+    currentSketchMode = "Rainbow";
+    changeSketchColor('rgb('+getRandom255().toString()+','+getRandom255().toString()+','+getRandom255().toString()+')');
+});
+//Colorchange Eraser if clicked
+eraserButton.addEventListener("click",function(){
+    currentSketchMode = "Eraser";
+    changeSketchColor("white");
+});
 
 //Colorchange if new Color picked
 colorPicker.onchange = function(){
-    changeColor(colorPicker.value);
+    currentSketchMode = "Color";
     changeSketchColor(colorPicker.value);
+    
 }
 
         /*                              FUNCTIONS                           */
@@ -45,23 +64,33 @@ function createPixels(size) {
     //place Pixels
     for (let i = 1; i <= size*size; i++) {
         const pixel = document.createElement("div");
-        //pixel.addEventListener('mousover',changeSketchColor("red"));
+        pixel.addEventListener('mousover',changeSketchColor);
         container.appendChild(pixel);
       }
       changeSketchColor(currentColor);
 }
 
-function changeColor(newColor) {
-    currentColor = newColor;
-}
+
 
 //function to Add EventListener if mousover with input Color
 function changeSketchColor(color){
-    
+
+    currentColor = color;
+    console.log(currentColor);
     let pixelList = Array.from(container.childNodes);
     pixelList.forEach(function(item) {
+
         item.addEventListener('mouseover', function() {
-            item.style.backgroundColor = color;
+            if(currentSketchMode == 'Rainbow'){
+                item.style.backgroundColor = 'rgb('+getRandom255().toString()+','+getRandom255().toString()+','+getRandom255().toString()+')';
+            }
+            else {
+                if(color==null){
+                    currentColor = DEFAULT_COLOR;
+                    item.style.backgroundColor = currentColor;
+                }
+                item.style.backgroundColor = currentColor;
+            }
         });
     });
    
@@ -72,10 +101,14 @@ function reloadPixels(size) {
     createPixels(size);
 }
 
+//give randomColornumber (0-255)
+function getRandom255(){
+    return Math.floor(Math.random() * (256 - 0)) + 0;
+}
+
 // On Start
 window.onload = () => {
     createPixels(DEFAULT_SIZE);
-    changeSketchColor(DEFAULT_COLOR);
 }
 
 

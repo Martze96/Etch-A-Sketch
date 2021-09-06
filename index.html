@@ -23,21 +23,34 @@
           <button id="clearButton" class="optionButton">Clear</button>
         </li>
         <li>
-          <button id="rainbowButton" class="optionButton">Test</button>
+          <button id="colorButton" class="optionButton">Color</button>
         </li>
         <li>
-          <input type="color" id="colorPicker" value="#C84646">
+          <button id="rainbowButton" class="optionButton">Rainbow</button>
+        </li>
+        <li>
+          <button id="eraserButton" class="optionButton">Eraser</button>
+        </li>
+        <li>
+          <input type="color" id="colorPicker" value="#000000">
         </li>
       </ul>
 
     </div>
-    <div id="container">
+    <div id="contenWrapper">
+      <div id="container">
         
+      </div>
+      <div id="slideContainer">
+        <label for="pixelSizeControl" id="sliderLabel">16 x 16</label>
+        <input type="range" step="1" min="16" max="64" value="16" class="slider" id="pixelSizeControl">
+      </div>
     </div>
     
-    <div id="slideContainer">
-      <label for="pixelSizeControl" id="sliderLabel">16 x 16</label>
-      <input type="range" step="1" min="16" max="64" value="16" class="slider" id="pixelSizeControl">
+
+
+    <div id="footer">
+      <h1><a href = "https://github.com/Martze96" id="githubLink">Martze96 via GitHub 2021</a></h1> 
     </div>
     
     

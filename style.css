@@ -1,58 +1,105 @@
+html {
+    height: 100%;
+}
+body {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 29% 70%;
+    grid-template-rows: 10% 81% 5%;
+    grid-template-areas:
+    "header header"
+    "sidebar content"
+    "footer  footer";
+    background-color: rgb(202, 255, 218);
+    color: #444;
+    height: 100%;
+}
+
 #titleBar {
-    background-color: khaki;
+    grid-area: header;
+    background-color: rgba(121, 179, 121, 0.514);
+    display: grid;
+    border-radius: 10px;
+    place-items: center;
+    box-shadow: 0px 0px 5px grey;
 }
 
 #titleBar h1 {
-    text-align: center;
+    margin: 0;
     font-family: sans-serif;
-    margin-top: 50px;
-    font-size: 64px;
-    
+    font-size: 48px;
+
 }
 
+#contentWrapper {
+    grid-area: content;
+    display: grid;
+    
+    place-items: center;
+    
+}
 
 #container {
 display:grid;
 grid-template-columns: repeat(16, 1fr);
 grid-template-rows: repeat(16, 1fr);
 gap: 0;
-width: 480px;
-height: 480px;
-position: absolute;
-top: 0;
-bottom: 0;
+width: 80%;
+height: 75%;
+/*position: absolute; */
+/*top: 0;
+bottom: 0; 
 left: 0;
-right: 0;
-margin:auto;
+right: 0; */
+margin:auto; 
+margin-top: 30px;
 box-shadow: 0px 10px 20px grey;
+background-color: white;
 
 }
 
+#container:hover {
+    cursor:crosshair;
+}
+
+#optionButtonList {
+    padding-left: 0;
+    display: grid;
+    place-items: center;
+}
 
 #options {
-    float:left;
-    position:absolute;
-    top: 300px;
-    left: 150px;
-    margin:auto;
+    grid-area: sidebar;
+    display: grid;
+    place-items: center;
+    background-color: rgba(165, 223, 172, 0.507);
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px grey;
 }
 
 .optionButton {
-  background-color: #ff4242;
+  background-color: #41834a;
   border: none;
-  color: white;
+  color: rgb(255, 255, 255);
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   font-family: sans-serif;
   font-size: 16px;
+  font-weight: 600;
   border-radius: 10px;
+  width: 150px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-#rainbowButton {
-    margin-top: 10px;
-    padding-right: 40px;
-    text-align: center;
+.optionButton:hover {
+    background-color: #444;
+}
+
+#clearButton {
+    background-color: #ca6f6f;
 }
 
 #colorPicker {
@@ -62,7 +109,11 @@ box-shadow: 0px 10px 20px grey;
     border: none;
     padding: 0;
     box-shadow: 0px 0px 5px grey;
+    transition: transform .3s;
+}
 
+#colorPicker:hover {
+    transform: scale(1.2);
 }
 
 #optionButtonList {
@@ -70,14 +121,15 @@ box-shadow: 0px 10px 20px grey;
 }
 
 #slideContainer {
-width: 300px;
-height: 480px;
-position: absolute;
-top: 1050px;
-bottom: 0px;
+width: 100%;
+height: 20%;
+/*position: absolute; */
+/*
 left: 200px;
 right: 200px;
+*/
 margin:auto;
+margin-top: 2%;
 text-align: center;
 }
 
@@ -85,9 +137,41 @@ text-align: center;
     text-align: center;
     font-family: sans-serif;
     font-size: 24px;
+    display: block;
 }
 
 #pixelSizeControl {
     width: 300px;
     margin-top: 15px;
+    transition: transform .3s;
+
 }
+
+#pixelSizeControl:hover {
+    transform: scale(1.2);
+}
+
+#footer {
+    grid-area: footer;
+    display: grid;
+    place-items: center;
+    background-color: rgba(225, 252, 184, 0.507);
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px grey;
+}
+
+#footer h1 {
+    font-family: sans-serif;
+    font-size: 20px;
+    text-align: center;
+    margin: 0;
+    
+}
+
+#githubLink {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+

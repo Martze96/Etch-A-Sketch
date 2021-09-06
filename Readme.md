@@ -1,8 +1,10 @@
 TODO:
-- Rainbow function
-- Layouting
-- Coloring
-- Colorpicker border delete
+- DONE Rainbow function
+- DONE Layouting
+- DONE Coloring
+- REMOVED Colorpicker border delete
 - Making everything via event
-- Eraser
-- footer with information
+- DONE Learn Transitions and add one to it (eg. Buttons)
+- DONE  Eraser
+- DONE footer with information
+- DONE grid Layout für die Seite verwenden ( Google video)

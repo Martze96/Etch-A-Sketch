@@ -1,3 +1,5 @@
+Preview: https://martze96.github.io/Etch-A-Sketch/
+
 TODO:
 - DONE Rainbow function
 - DONE Layouting

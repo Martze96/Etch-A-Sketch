@@ -1,6 +1,8 @@
 Preview: https://martze96.github.io/Etch-A-Sketch/
 
-TODO:
+GOAL: Layouting, Styling and get to know some Elements
+
+TODO (DONE FOR NOW):
 - DONE Rainbow function
 - DONE Layouting
 - DONE Coloring
